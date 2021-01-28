@@ -125,7 +125,7 @@ h2 {
       }
 
         .content__form > div > input {
-          padding: 10px 2px;
+          padding: 10px 10px;
           border-radius: 8px;
           border: none;
           outline: none;
