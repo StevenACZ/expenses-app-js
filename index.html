@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense tracker</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- CONTENT -->
+    <section class="js-content content">
+      <h2 class="js-title">Expenses</h2>
+
+      <ul class="content__list">
+        <li class="content__item">
+          <div class="content__details">
+            <h3>Categori</h3>
+            <p>Description</p>
+          </div>
+          
+          <div class="content__actions">
+            <p>Price</p>
+            <span>Eliminar</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <button class="js-button-new-expense footer__button">New Expense</button>
+      </footer>
+    </section>
+  
+    <!-- FORM -->
+    <section class="js-form form">
+      <h2 class="js-title">Expenses</h2>
+
+      <form class="content__form">
+        <div>
+          <label>Amount</label>
+          <input type="number" name="amount">
+        </div>
+        
+        <div>
+          <label>Category</label>
+          <input type="text" name="description">
+        </div>
+        
+        <div>
+          <label>Description</label>
+          <input type="text" name="description">
+        </div>
+  
+        <div class="content__buttons">
+          <input class="js-button--accept" type="submit" value="Add">
+          <input class="js-button--cancel" type="button" value="Cancel">
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
