@@ -1,13 +1,25 @@
-// const STORE = {
-//   gastos: [
-//     {
-//       amount: 10,
-//       category: Shopping,
-//       description: Iphone 20,
-//       date: 2020-01-27
-//     }
-//   ]
-// }
+const STORE = {
+  gastos: [
+    {
+      amount: 10,
+      category: 'Shopping',
+      description: 'Iphone 20',
+      date: '2020-01-27'
+    },
+    {
+      amount: 200,
+      category: 'Shopping',
+      description: 'Pc gamer',
+      date: '2020-01-01'
+    },
+    {
+      amount: 500,
+      category: 'Shopping',
+      description: 'Macbook pro 20',
+      date: '2021-08-01'
+    }
+  ]
+}
 
 const sectionContent = document.querySelector('.js-content');
 const sectionForm = document.querySelector('.js-form');
@@ -23,10 +35,26 @@ btnCancel.addEventListener('click', () => {
   sectionForm.classList.remove('active');
 })
 
-function renderList() {
-  return `
+function renderExpenses() {
+  const contentList = document.querySelector('.content__list');
 
-  `
+  STORE.gastos.forEach(({amount, category, description, date}) => {
+    let contentItemElement = document.createElement('li');
+    contentItemElement.classList.add('content__item')
+    contentItemElement.innerHTML = `
+    <div class="content__details">
+      <h3>${category}</h3>
+      <p>${description}</p>
+    </div>
+    
+    <div class="content__actions">
+      <p>$${amount}</p>
+      <span>Eliminar</span>
+    </div>
+    `;
+
+    contentList.appendChild(contentItemElement);
+  })
 }
 
 function renderForm() {
@@ -35,25 +63,8 @@ function renderForm() {
   `
 }
 
+function init() {
+  renderExpenses()
+}
 
-
-// function listenCancelClick() {
-//   const content = document.querySelector('.js-content');
-//   content.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     let target = content.querySelector('.js-button--cancel');
-//     console.log(target)
-//     // if (target == e.target) {
-//     //   content.innerHTML = renderForm();
-//     // }
-//   })
-// }
-
-// function init() {
-//   const content = document.querySelector('.js-content');
-//   content.innerHTML = renderList();
-//   addEventListeners();
-//   // content.innerHTML = renderForm();
-// }
-
-// init();
+init();

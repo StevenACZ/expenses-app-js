@@ -43,11 +43,14 @@ h2 {
         padding: 4px 16px;
         box-shadow: 0 0 16px rgba(0,0,0,.16);
         display: flex;
+        margin-bottom: 20px;
       }
 
         .content__details {
           width: 55%;
-
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
           .content__details > h3 {
