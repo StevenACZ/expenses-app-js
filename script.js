@@ -1,4 +1,4 @@
-const STORE = {
+let STORE = {
   gastos: [
     {
       amount: 10,
@@ -38,6 +38,8 @@ btnCancel.addEventListener('click', () => {
 function renderExpenses() {
   const contentList = document.querySelector('.content__list');
 
+  contentList.innerHTML = ''
+
   STORE.gastos.forEach(({amount, category, description, date}) => {
     let contentItemElement = document.createElement('li');
     contentItemElement.classList.add('content__item')
@@ -57,11 +59,38 @@ function renderExpenses() {
   })
 }
 
-function renderForm() {
-  return `
+const contentForm = document.querySelector('.js-content__form');
 
-  `
+function sendNewExpenseToServer(newExpense) {
+  STORE.gastos.push(newExpense)
 }
+
+function submitForm() {
+  const amount = contentForm.querySelector('.js-amount');
+  const category = contentForm.querySelector('.js-category');
+  const description = contentForm.querySelector('.js-description');
+
+  const newExpense = {
+    amount: amount.value,
+    category: category.value,
+    description: description.value
+  }
+
+  // SEND DATA TO SERVER
+  sendNewExpenseToServer(newExpense)
+
+  // CLEAR INPUTS
+  amount.value = ''
+  category.value = ''
+  description.value = ''
+}
+
+contentForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  submitForm()
+  renderExpenses()
+  sectionForm.classList.remove('active');
+})
 
 function init() {
   renderExpenses()
