@@ -73,7 +73,7 @@ function renderExpenses() {
     
     <div class="content__actions">
       <p>$${amount}</p>
-      <span>Eliminar</span>
+      <span><img src="./icons8-basura-30.png" alt="trash"></span>
     </div>
     `;
 
